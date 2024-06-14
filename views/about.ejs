@@ -1,0 +1,37 @@
+<!-- about page -->
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <title><%= title %></title>
+    <%- include('./partials/header'); -%>
+  </head>
+  <body>
+    <%- include('./partials/navbar'); -%>
+    <div class="container min-vh-100">
+      <div class="p-5 bg-primary text-white text-left rounded">
+        <h1>About</h1>
+      </div>
+      <br />
+      <div class="p-2 bg-secondary text-white rounded">
+        <p>This is a simple message board project</p>
+        <h6>It is created with the following technologies</h6>
+      </div>
+      <br />
+      <div class="list-group">
+        <a
+          href="https://nodejs.org/"
+          class="list-group-item list-group-item-action"
+          >NodeJS</a
+        >
+        <a
+          href="https://expressjs.com/"
+          class="list-group-item list-group-item-action"
+          >ExpressJS</a
+        >
+        <a href="https://ejs.co/" class="list-group-item list-group-item-action"
+          >EJS</a
+        >
+      </div>
+    </div>
+    <%- include('./partials/footer'); -%>
+  </body>
+</html>
