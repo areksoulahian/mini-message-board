@@ -1,0 +1,19 @@
+<!-- error page -->
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <%- include('./partials/header'); -%>
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <%- include('./partials/navbar'); -%>
+    <div class="container" style="min-height: 100vh">
+      <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1><%= message %></h1>
+        <h2><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
+      </div>
+    </div>
+    <%- include('./partials/footer'); -%>
+  </body>
+</html>

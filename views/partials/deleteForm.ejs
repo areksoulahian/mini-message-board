@@ -1,0 +1,9 @@
+<% userPost.forEach((element) => { %>
+<form method="POST" action="<%= basePath %>/delete">
+  <input type="hidden" name="user" value="<%= element.user %>" />
+  <input type="hidden" name="text" value="<%= element.text %>" />
+  <input type="hidden" name="added" value="<%= element.added %>" />
+  <input type="hidden" name="messageId" value="<%= element.messageId %>" />
+  <button class="btn btn-danger" type="submit">DeleteF</button>
+</form>
+<% }); %>

@@ -1,0 +1,49 @@
+<!-- New page -->
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <%- include('./partials/header'); -%>
+    <title><%= title %></title>
+  </head>
+  <body style="min-height: 100vh">
+    <%- include('./partials/navbar'); -%>
+    <div class="container min-vh-100">
+      <div class="p-5 bg-primary text-white text-left rounded">
+        <h1><%= title %></h1>
+      </div>
+      <br />
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action="<%= basePath %>/new">
+            <div class="mb-3 mt-3">
+              <input
+                class="form-control"
+                type="text"
+                name="user"
+                id="user"
+                placeholder="Enter Name"
+                required
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <textarea
+                class="form-control"
+                type="text"
+                name="text"
+                id="text"
+                placeholder="Enter a message"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <div class="mb-3 mt-3">
+              <button class="btn btn-primary" type="submit" value="Submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include('./partials/footer'); -%>
+  </body>
+</html>
