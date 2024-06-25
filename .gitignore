@@ -1,9 +1,5 @@
+.DS_Store
+
 node_modules/
 
 .env
-
-.prettierrc
-
-messages.json
-
-.DS_Store

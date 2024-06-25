@@ -10,8 +10,6 @@
     "text": "asdf;lkasjdf\r\n",
     "user": "wasjkl;",
     "added": "2024-06-13T06:16:26.206Z"
-<<<<<<< HEAD
-=======
   },
   {
     "messageId": "6/13/2024, 12:01:56 PM",
@@ -30,6 +28,11 @@
     "text": "fa",
     "user": "af",
     "added": "Thu, 13 Jun 2024 19:03:58 GMT"
->>>>>>> master
+  },
+  {
+    "messageId": "1719341922542",
+    "text": "is today or tomorrow",
+    "user": "Today",
+    "added": "Tue, 25 Jun 2024 18:58:42 GMT"
   }
 ]
