@@ -111,4 +111,9 @@ router.get(`${basePath}/about`, (req, res) => {
   res.render('about', { title: 'About' });
 });
 
+/* GET favicon */
+router.get(`${basePath}/favicon.ico`, (req, res) => {
+  res.render('favicon.ico');
+});
+
 module.exports = router;
