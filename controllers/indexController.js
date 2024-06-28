@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filePath = './messages.json';
+const filePath = './models/messages.json';
 
 /* Helper function to read message from json file */
 const readMessages = () => {

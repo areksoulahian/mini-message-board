@@ -27,7 +27,7 @@ router.get('/edit/:id', getEditMessage);
 router.put('/edit/:id', updateMessage);
 
 /* POST delete message page */
-router.delete('/delete', deleteMessage);
+router.delete('/delete/:id', deleteMessage);
 
 /* GET about page. */
 router.get('/about', getAbout);
