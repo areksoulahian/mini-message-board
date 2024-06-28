@@ -24,10 +24,10 @@ router.post('/new', postNewMessage);
 router.get('/edit/:id', getEditMessage);
 
 /* POST update message page */
-router.post('/edit/:id', updateMessage);
+router.put('/edit/:id', updateMessage);
 
 /* POST delete message page */
-router.post('/delete', deleteMessage);
+router.delete('/delete', deleteMessage);
 
 /* GET about page. */
 router.get('/about', getAbout);
