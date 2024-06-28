@@ -1,5 +1,5 @@
 <% userPost.forEach((element) => { %>
-<form method="POST" action="<%= basePath %>/delete">
+<form method="POST" action="<%= basePath %>/delete?_method=DELETE">
   <input type="hidden" name="user" value="<%= element.user %>" />
   <input type="hidden" name="text" value="<%= element.text %>" />
   <input type="hidden" name="added" value="<%= element.added %>" />
