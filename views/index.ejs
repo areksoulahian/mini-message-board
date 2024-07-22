@@ -10,6 +10,26 @@
 
 <body>
   <%- include('./partials/navbar'); -%>
+    <div class="container">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <% if (user) { %>
+              <li class="nav-item">
+                <a class="nav-link" href="<%= basePath %>/logout">Logout</a>
+              </li>
+              <% } else { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= basePath %>/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<%= basePath %>/register">Register</a>
+                </li>
+                <% } %>
+          </ul>
+        </div>
+      </nav>
+    </div>
     <div class="container min-vh-100">
       <div class="p-5 bg-primary text-white text-left rounded">
         <h1>
@@ -28,9 +48,9 @@
               <th scope=""></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="">
             <% userPost.forEach((element)=> { %>
-              <tr>
+              <tr class="">
                 <td>
                   <div class="h4">
                     <%= element.user %>

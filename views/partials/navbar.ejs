@@ -14,19 +14,39 @@
               <a class="nav-link active" href="<%= basePath %>/">Home</a>
             </li>
           </div>
+          <% if (user) { %>
           <div class="col">
             <li class="nav-item">
               <a class="nav-link active" href="<%= basePath %>/new">New</a>
             </li>
           </div>
+          <% } %>
           <div class="col">
             <li class="nav-item">
               <a class="nav-link active" href="<%= basePath %>/about">About</a>
             </li>
           </div>
+          <% if (user) { %>
+          <div class="col">
+            <li class="nav-item">
+              <a class="nav-link" href="<%= basePath %>/logout">Logout</a>
+            </li>
+          </div>
+          <% } else { %>
+          <div class="col">
+            <li class="nav-item">
+              <a class="nav-link" href="<%= basePath %>/login">Login</a>
+            </li>
+          </div>
+          <div class="col">
+            <li class="nav-item">
+              <a class="nav-link" href="<%= basePath %>/register">Register</a>
+            </li>
+          </div>
+          <% } %>
         </div>
       </ul>
     </div>
-  </nav>
+  </div>
 </div>
 <!-- end nav -->

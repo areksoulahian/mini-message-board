@@ -1,5 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
+const ensureAuthenticated = require('../controllers/authMiddleware');
+
+
 const { 
   readMessages,
   writeMessages,
@@ -11,11 +15,14 @@ const {
   deleteMessage,
   getAbout } = require('../controllers/indexController');
 
+
 /* GET home page. */
-router.get('/', getHome);
+// router.get('/', getHome);
+router.get('/', ensureAuthenticated, getHome);
 
 /* GET new page. */
-router.get('/new', getNew);
+// router.get('/new', getNew);
+router.get('/new', ensureAuthenticated, getNew);
 
 /* POST new message */
 router.post('/new', postNewMessage);
