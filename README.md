@@ -1,16 +1,58 @@
-# mini-message-board
+# Mini Message Board
 
-Using NodeJS, ExpressJS, and EJS
-as well as bootstrap 5
+A full-stack CRUD message board built with Node.js, Express, and EJS.
 
-Full functional CRUD app
+## Features
 
-Routes are configured in a separate file index.js
+- Create, read, update, and delete messages
+- Dark-themed responsive UI with Bootstrap 5
+- Messages stored as JSON, no database required
+- Messages displayed newest-first
 
-using json as db
+## Tech Stack
 
-[live link](https://arswebdev.com/mini-message-board/)
+- **Runtime:** Node.js
+- **Framework:** Express
+- **Templating:** EJS
+- **Styling:** Bootstrap 5 (dark mode) + Font Awesome 4
+- **Storage:** JSON file (`messages.json`)
 
-```npm run dev```
-or 
-```PORT=3000 npm run dev```
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start with file watching and `.env` |
+| `npm start` | Start for production |
+
+## Project Structure
+
+```
+├── app.js                  # Express app setup
+├── routes/index.js         # All route handlers
+├── views/
+│   ├── index.ejs           # Homepage (message list)
+│   ├── new.ejs             # New message form
+│   ├── edit.ejs            # Edit message form
+│   ├── about.ejs           # About page
+│   ├── error.ejs           # Error page
+│   └── partials/
+│       ├── header.ejs      # Meta tags + CDN links
+│       ├── navbar.ejs      # Top navigation
+│       └── footer.ejs      # Footer
+├── public/
+│   └── stylesheets/style.css
+└── messages.json
+```
+
+## Live Demo
+
+[https://arswebdev.com/mini-message-board/](https://arswebdev.com/mini-message-board/)
