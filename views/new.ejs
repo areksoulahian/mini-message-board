@@ -15,6 +15,7 @@
         <div class="card-body">
           <form method="POST" action="<%= basePath %>/new">
             <div class="mb-3 mt-3">
+              <label for="user" class="form-label">Name</label>
               <input
                 class="form-control"
                 type="text"
@@ -25,9 +26,9 @@
               />
             </div>
             <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Message</label>
               <textarea
                 class="form-control"
-                type="text"
                 name="text"
                 id="text"
                 placeholder="Enter a message"

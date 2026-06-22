@@ -1,8 +1,21 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.card {
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn {
+  transition: opacity 0.15s ease;
+}
+
+.card-text {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }

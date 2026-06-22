@@ -3,21 +3,6 @@ const router = express.Router();
 const fs = require('fs');
 const filePath = './messages.json';
 
-// const messages = [
-//   {
-//     messageId: "0",
-//     text: "Hi there!",
-//     user: "Amando",
-//     added: new Date(),
-//   },
-//   {
-//     messageId: "1",
-//     text: "Hello World!",
-//     user: "Charles",
-//     added: new Date(),
-//   },
-// ];
-
 /* Helper function to read message from json file */
 const readMessages = () => {
   const data = fs.readFileSync(filePath, 'utf8');
@@ -27,6 +12,17 @@ const readMessages = () => {
 /* Helper function to write message from json file */
 const writeMessages = (messages) => {
   fs.writeFileSync(filePath, JSON.stringify(messages, null, 2));
+};
+
+const formatDate = (utcString) => {
+  const date = new Date(utcString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+  });
 };
 
 /* base path for application deployment */
@@ -40,7 +36,8 @@ router.use((req, res, next) => {
 
 /* GET home page. */
 router.get(`${basePath}/`, (req, res) => {
-  const messages = readMessages();
+  const messages = readMessages().reverse();
+  messages.forEach((m) => (m.formattedDate = formatDate(m.added)));
   res.render('index', { title: 'Mini Messageboard', userPost: messages });
 });
 
@@ -69,6 +66,7 @@ router.get(`${basePath}/edit/:id`, (req, res) => {
     (element) => element.messageId === req.params.id
   );
   if (messagePost) {
+    messagePost.formattedDate = formatDate(messagePost.added);
     res.render('edit', { title: 'Edit Message', userPost: messagePost });
   } else {
     res.redirect(`${basePath}/`);
@@ -94,10 +92,6 @@ router.post(`${basePath}/edit/:id`, (req, res) => {
 /* POST delete message page */
 router.post(`${basePath}/delete`, (req, res) => {
   const requestedMessageId = req.body.messageId;
-  // const index = messages.findIndex(element => element.messageId === requestedMessageId);
-  // if (index !== -1) {
-  //   messages.splice(index, 1);
-  // }
   let messages = readMessages();
   messages = messages.filter(
     (element) => element.messageId !== requestedMessageId

@@ -17,38 +17,41 @@
             method="POST"
             action="<%= basePath %>/edit/<%= userPost.messageId %>"
           >
+            <div class="mb-3">
+              <label for="user" class="form-label">Name</label>
+              <input
+                class="form-control"
+                type="text"
+                name="user"
+                id="user"
+                value="<%= userPost.user %>"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="text" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                name="text"
+                id="text"
+                rows="3"
+                required
+              ><%= userPost.text %></textarea>
+            </div>
+            <div class="mb-3 text-muted small">
+              Posted: <%= userPost.formattedDate || userPost.added %>
+            </div>
             <input
-              class="form-control"
-              type="text"
-              name="user"
-              value="<%= userPost.user %>"
-            />
-            <br />
-            <textarea
-              class="form-control"
-              type="text"
-              name="text"
-              value="<%= userPost.text %>"
-              rows="3"
-            >
-<%= userPost.text %></textarea
-            >
-            <input
-              class="form-control"
               type="hidden"
               name="added"
               value="<%= userPost.added %>"
             />
             <input
-              class="form-control"
               type="hidden"
               name="messageId"
               value="<%= userPost.messageId %>"
             />
-            <br />
-            <button class="btn btn-danger" type="submit">
-              &nbsp;&nbsp;Save&nbsp;&nbsp;
-            </button>
+            <button class="btn btn-primary" type="submit">Save</button>
           </form>
         </div>
       </div>

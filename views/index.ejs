@@ -6,88 +6,49 @@
   </head>
   <body>
     <%- include('./partials/navbar'); -%>
-    <div class="container min-vh-100">
-      <div class="p-5 bg-primary text-white text-left rounded">
+    <div class="container min-vh-100 py-4">
+      <div class="p-5 bg-primary text-white text-left rounded mb-4">
         <h1><%=title%></h1>
       </div>
-      <br />
-      <a href="<%= basePath %>/new" class="btn btn-primary">New Message</a>
 
-      <div class="table-responsive">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="">User</th>
-              <th scope="">Text</th>
-              <th scope=""></th>
-              <!-- <th scope="col">added</th>
-              <th scope="col">messageId</th> -->
-            </tr>
-          </thead>
-          <tbody>
-            <% userPost.forEach((element) => { %>
-            <tr>
-              <td>
-                <div class="h4"><%= element.user %></div>
-              </td>
-              <td>
-                <div class="">
-                  <div class="h5"><%= element.text %></div>
-                  <div class="">
-                    <small
-                      >Date: <br />
-                      <%= element.added %></small
-                    >
-                  </div>
-                  <div class="">
-                    <small>MessageID: <br /><%= element.messageId %></small>
-                  </div>
-                </div>
-              </td>
+      <a href="<%= basePath %>/new" class="btn btn-primary mb-4">+ New Message</a>
 
-              <td>
-                <div class="d-flex flex-column">
-                  <div class="mt-4">
+      <% if (userPost.length === 0) { %>
+        <div class="alert alert-info">No messages yet. Be the first to post!</div>
+      <% } %>
+
+      <div class="row g-3">
+        <% userPost.forEach((element) => { %>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start">
+                  <div class="flex-grow-1 me-3">
+                    <h5 class="card-title mb-1">
+                      <i class="fa fa-user-circle"></i> <%= element.user %>
+                    </h5>
+                    <p class="card-text mb-1"><%= element.text %></p>
+                    <small class="text-muted"><%= element.formattedDate %></small>
+                  </div>
+                  <div class="d-flex gap-2 flex-shrink-0">
                     <a
                       href="<%= basePath %>/edit/<%= element.messageId %>"
-                      class="btn btn-warning"
-                      >&nbsp;&nbsp;Edit&nbsp;&nbsp;
-                    </a>
-                  </div>
-                  <div class="my-1"></div>
-                  <div class="mb-4">
+                      class="btn btn-warning btn-sm"
+                    >Edit</a>
                     <form method="POST" action="<%= basePath %>/delete">
-                      <input
-                        type="hidden"
-                        name="user"
-                        value="<%= element.user %>"
-                      />
-                      <input
-                        type="hidden"
-                        name="text"
-                        value="<%= element.text %>"
-                      />
-                      <input
-                        type="hidden"
-                        name="added"
-                        value="<%= element.added %>"
-                      />
                       <input
                         type="hidden"
                         name="messageId"
                         value="<%= element.messageId %>"
                       />
-                      <button class="btn btn-danger" type="submit">
-                        Delete
-                      </button>
+                      <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('Delete this message?')">Delete</button>
                     </form>
                   </div>
                 </div>
-              </td>
-            </tr>
-            <% }); %>
-          </tbody>
-        </table>
+              </div>
+            </div>
+          </div>
+        <% }); %>
       </div>
     </div>
     <%- include('./partials/footer'); -%>
